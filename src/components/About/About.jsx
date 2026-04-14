@@ -1,27 +1,37 @@
-import './About.css'
+import {
+  AboutSection,
+  AboutBgPattern,
+  AboutContainer,
+  AboutHeader,
+  AboutTag,
+  AboutTitle,
+  AboutLine,
+  AboutText,
+  AboutBrand
+} from './About.styles'
 
 function About() {
   return (
-    <section className="about" id="quienes-somos">
-      <div className="about__bg-pattern"></div>
+    <AboutSection id="quienes-somos">
+      <AboutBgPattern />
 
-      <div className="about__container">
-        <div className="about__header">
-          <span className="about__tag">Nuestra historia</span>
-          <h2 className="about__title">¿Quiénes Somos?</h2>
-          <div className="about__line"></div>
-        </div>
+      <AboutContainer>
+        <AboutHeader>
+          <AboutTag>Nuestra historia</AboutTag>
+          <AboutTitle>¿Quiénes Somos?</AboutTitle>
+          <AboutLine />
+        </AboutHeader>
 
-        <p className="about__text">
-          En <span className="about__brand">CompuCerebro</span> creemos que la tecnología debe trabajar para ti, no al revés.
+        <AboutText>
+          En <AboutBrand>CompuCerebro</AboutBrand> creemos que la tecnología debe trabajar para ti, no al revés.
           Estamos especializados en la venta de equipos de cómputo, soporte técnico especializado y asesoría
           tecnológica, ayudando a nuestros clientes a tomar decisiones inteligentes y seguras.
           <br /><br />
           Nuestro objetivo es claro: simplificar la tecnología y potenciar tu productividad.
-        </p>
+        </AboutText>
 
-      </div>
-    </section>
+      </AboutContainer>
+    </AboutSection>
   )
 }
 

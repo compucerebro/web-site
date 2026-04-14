@@ -1,6 +1,6 @@
 # 💻 CompuCerebro | Tecnología Inteligente
 
-![CompuCerebro](https://img.shields.io/badge/Estado-Activo-success) ![React](https://img.shields.io/badge/React-19.2-blue) ![Vite](https://img.shields.io/badge/Vite-8.0-blueviolet)
+![CompuCerebro](https://img.shields.io/badge/Estado-Activo-success) ![React](https://img.shields.io/badge/React-19.2-blue) ![Vite](https://img.shields.io/badge/Vite-8.0-blueviolet) ![Styled Components](https://img.shields.io/badge/Styled--Components-6.1-db7093)
 
 Venta de computadores, soporte técnico y soluciones tecnológicas de confianza, pensadas para personas y empresas. Equipos Gamer, de oficina y laptops.
 
@@ -8,55 +8,63 @@ Venta de computadores, soporte técnico y soluciones tecnológicas de confianza,
 
 ## 🚀 Características Principales
 
-Esta *Landing Page* (página de presentación) de CompuCerebro está diseñada para ofrecer una experiencia de usuario rápida y moderna, e integra las siguientes secciones:
+Esta *Landing Page* de CompuCerebro ofrece una experiencia de usuario rápida, moderna y visualmente atractiva:
 
-- **Inicio (Hero):** Sección de impacto inicial destacando el propósito de la marca.
-- **Sobre Nosotros:** Información acerca de la empresa, su misión y experiencia.
-- **Productos:** Catálogo de equipos para distintas necesidades (Gamer, Oficina, Laptops).
-- **Servicios:** Oferta de soporte técnico, mantenimiento y venta de soluciones tecnológicas y de software.
-- **Contacto:** Información de contacto, ubicación mediante integración de mapas e información general.
-- **Botón de WhatsApp:** Soporte flotante animado y persistente para comunicación directa por chat con el área de ventas o soporte técnico.
+- **Inicio (Hero):** Sección de impacto con animaciones dinámicas.
+- **Sobre Nosotros:** Información corporativa y propuesta de valor.
+- **Productos:** Catálogo interactivo segmentado por categorías.
+- **Servicios:** Detalle de soluciones técnicas y software.
+- **Contacto:** Ubicación integrada con mapas y enlaces directos.
+- **WhatsApp Flotante:** Botón persistente con indicador de "escribiendo" para mejorar el engagement.
 
 ## 🛠️ Tecnologías Empleadas
 
-El proyecto está estructurado con herramientas y librerías modernas para asegurar su alto rendimiento y posicionamiento:
+El proyecto utiliza un stack moderno enfocado en mantenibilidad y rendimiento:
 
-- **[React](https://react.dev/) (v19):** Interfaz e interactividad basada en componentes.
-- **[Vite](https://vitejs.dev/):** Optimizador y servidor de desarrollo ultra rápido.
-- **[React Helmet Async](https://github.com/staylor/react-helmet-async):** Inyección asíncrona de las etiquetas del `<head>`, brindando un excelente SEO en títulos, descripciones, imágenes destacadas (Open Graph) y tarjetas en X/Twitter.
-- **CSS Vanilla (Modular):** Todo el estilo está trabajado a través de CSS de escritorio limpio por componente, para un mayor control, legibilidad y personalización visual.
+- **[React](https://react.dev/) (v19):** Biblioteca principal para la interfaz.
+- **[Vite](https://vitejs.dev/):** Herramienta de construcción y servidor de desarrollo.
+- **[Styled Components](https://styled-components.com/):** Sistema de **CSS-in-JS** que garantiza estilos encapsulados, dinámicos y un código más limpio.
+- **[React Helmet Async](https://github.com/staylor/react-helmet-async):** Gestión avanzada de SEO (etiquetas Meta, Open Graph para redes sociales).
 
-## ⚙️ Instalación y Entorno Local
+## 📁 Arquitectura del Proyecto
 
-Sigue estos pasos si deseas ejecutar o modificar la web de manera local:
+La estructura sigue el patrón de componentes modulares:
+
+```text
+src/
+├── components/          # Componentes independientes
+│   └── ComponentName/
+│       ├── Component.jsx       # Lógica y estructura
+│       └── Component.styles.js # Estilos específicos (Styled Components)
+├── styles/
+│   └── GlobalStyles.js  # Tokens de diseño, fuentes y resets globales
+└── main.jsx             # Punto de entrada con proveedores globales
+```
+
+## ⚙️ Configuración Local
+
+Sigue estos pasos para trabajar en el proyecto:
 
 1. **Clona el repositorio**
    ```bash
    git clone https://github.com/compucerebro/web-site.git
    ```
 
-2. **Navega al directorio del proyecto**
-   ```bash
-   cd web-site
-   ```
-
-3. **Instala las dependencias**
+2. **Instala las dependencias** (Incluyendo Styled Components)
    ```bash
    npm install
    ```
 
-4. **Inicia el servidor en modo desarrollo**
+3. **Inicia el servidor**
    ```bash
    npm run dev
    ```
-   El proyecto estará disponible comúnmente en `http://localhost:5173/`.
 
-5. **Preparar para producción**
+4. **Producción**
    ```bash
    npm run build
    ```
-   Generará los archivos estáticos listos para producción dentro del directorio `dist/`.
 
-## 💼 Estructura del proyecto
+---
 
-El archivo principal que orquesta toda la aplicación es `src/App.jsx`. Dentro de `src/components`, la navegación y las secciones están organizadas por carpetas individuales (` Navbar`, `Hero`, `Services`, `Footer`, etc.), permitiendo que el proyecto se mantenga fácilmente escalable a futuro.
+*Desarrollado con ❤️ para CompuCerebro.*

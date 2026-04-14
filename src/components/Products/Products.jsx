@@ -1,5 +1,28 @@
 import { useState } from 'react'
-import './Products.css'
+import {
+  ProductsSection,
+  ProductsHeader,
+  ProductsTag,
+  ProductsTitle,
+  TitleLine,
+  ProductsSubtitle,
+  CarouselContainer,
+  SideCardWrapper,
+  CenterCardWrapper,
+  CardContainer,
+  CardBadge,
+  ImageWrap,
+  CardImage,
+  CardBody,
+  CardTag,
+  CardName,
+  CardDesc,
+  CardBtn,
+  ControlsContainer,
+  ArrowButton,
+  DotsContainer,
+  DotLoader
+} from './Products.styles'
 
 const products = [
   {
@@ -52,33 +75,31 @@ const products = [
 
 function ProductCard({ product, isActive }) {
   return (
-    <div className={`product-card ${isActive ? 'product-card--active' : ''}`}>
+    <CardContainer $isActive={isActive}>
       {product.badge && (
-        <div className="product-card__badge">{product.badge}</div>
+        <CardBadge>{product.badge}</CardBadge>
       )}
-      <div className="product-card__image-wrap">
-        <img
+      <ImageWrap>
+        <CardImage
           src={product.image}
           alt={product.name}
-          className="product-card__image"
         />
-      </div>
-      <div className="product-card__body">
-        <span className="product-card__tag">{product.tag}</span>
-        <h3 className="product-card__name">{product.name}</h3>
-        <p className="product-card__desc">{product.description}</p>
-        <a
+      </ImageWrap>
+      <CardBody>
+        <CardTag>{product.tag}</CardTag>
+        <CardName>{product.name}</CardName>
+        <CardDesc>{product.description}</CardDesc>
+        <CardBtn
           href="#contacto"
-          className="product-card__btn"
           onClick={(e) => {
             e.preventDefault()
             document.querySelector('#contacto')?.scrollIntoView({ behavior: 'smooth' })
           }}
         >
           Cotizar ahora
-        </a>
-      </div>
-    </div>
+        </CardBtn>
+      </CardBody>
+    </CardContainer>
   )
 }
 
@@ -91,68 +112,66 @@ function Products() {
   const getIndex = (offset) => (active + offset + products.length) % products.length
 
   return (
-    <section className="products" id="productos">
-      <div className="products__header">
-        <span className="products__tag">Nuestros equipos</span>
-        <h2 className="products__title">Productos</h2>
-        <div className="products__title-line"></div>
-        <p className="products__subtitle">
+    <ProductsSection id="productos">
+      <ProductsHeader>
+        <ProductsTag>Nuestros equipos</ProductsTag>
+        <ProductsTitle>Productos</ProductsTitle>
+        <TitleLine />
+        <ProductsSubtitle>
           Cotiza con nosotros equipos confiables, configurados según tu necesidad.
-        </p>
-      </div>
+        </ProductsSubtitle>
+      </ProductsHeader>
 
-      <div className="products__carousel">
+      <CarouselContainer>
         {/* Tarjeta izquierda */}
-        <div
-          className="products__side-card"
+        <SideCardWrapper
           onClick={prev}
           aria-label="Anterior"
         >
           <ProductCard product={products[getIndex(-1)]} isActive={false} />
-        </div>
+        </SideCardWrapper>
 
         {/* Tarjeta central */}
-        <div className="products__center-card">
+        <CenterCardWrapper>
           <ProductCard product={products[active]} isActive={true} />
-        </div>
+        </CenterCardWrapper>
 
         {/* Tarjeta derecha */}
-        <div
-          className="products__side-card"
+        <SideCardWrapper
           onClick={next}
           aria-label="Siguiente"
         >
           <ProductCard product={products[getIndex(1)]} isActive={false} />
-        </div>
-      </div>
+        </SideCardWrapper>
+      </CarouselContainer>
 
       {/* Controles */}
-      <div className="products__controls">
-        <button className="products__arrow" onClick={prev} id="products-prev" aria-label="Anterior">
+      <ControlsContainer>
+        <ArrowButton onClick={prev} id="products-prev" aria-label="Anterior">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
             <polyline points="15 18 9 12 15 6" />
           </svg>
-        </button>
+        </ArrowButton>
 
-        <div className="products__dots">
+        <DotsContainer>
           {products.map((_, i) => (
-            <button
+            <DotLoader
               key={i}
               id={`products-dot-${i}`}
-              className={`products__dot ${i === active ? 'products__dot--active' : ''}`}
+              $active={i === active}
               onClick={() => setActive(i)}
               aria-label={`Ir al producto ${i + 1}`}
             />
           ))}
-        </div>
+        </DotsContainer>
 
-        <button className="products__arrow" onClick={next} id="products-next" aria-label="Siguiente">
+        <ArrowButton onClick={next} id="products-next" aria-label="Siguiente">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
             <polyline points="9 18 15 12 9 6" />
           </svg>
-        </button>
-      </div>
-    </section>
+        </ArrowButton>
+      </ControlsContainer>
+    </ProductsSection>
   )
 }
 

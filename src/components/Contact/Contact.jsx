@@ -1,103 +1,118 @@
-import './Contact.css'
+import {
+  ContactSection,
+  MapContainer,
+  MapOverlay,
+  MapLink,
+  ContactBody,
+  ContactInfo,
+  ContactTitle,
+  ContactSub,
+  ContactBrand,
+  ContactDetails,
+  DetailItem,
+  DetailIcon,
+  DetailLabel,
+  DetailValue,
+  ContactCta,
+  WhatsAppBtn
+} from './Contact.styles'
 
 function Contact() {
   return (
-    <section className="contact" id="contacto">
+    <ContactSection id="contacto">
       {/* Mapa */}
-      <div className="contact__map">
+      <MapContainer>
         <iframe
           title="Ubicación CompuCerebro"
           src="https://www.openstreetmap.org/export/embed.html?bbox=-74.1350%2C4.7000%2C-74.1000%2C4.7300&layer=mapnik&marker=4.7150%2C-74.1200"
           allowFullScreen
           loading="lazy"
         ></iframe>
-        <div className="contact__map-overlay"></div>
-        <a
+        <MapOverlay />
+        <MapLink
           href="https://www.openstreetmap.org/?mlat=4.7150&mlon=-74.1200#map=15/4.7150/-74.1200"
           target="_blank"
           rel="noopener noreferrer"
-          className="contact__map-link"
           id="contact-map-link"
         >
           Ver en mapa ↗
-        </a>
-      </div>
+        </MapLink>
+      </MapContainer>
 
       {/* Info */}
-      <div className="contact__body">
-        <div className="contact__info">
-          <div className="contact__info-header">
-            <h2 className="contact__title">Contáctenos</h2>
-            <p className="contact__sub">
+      <ContactBody>
+        <ContactInfo>
+          <div>
+            <ContactTitle>Contáctenos</ContactTitle>
+            <ContactSub>
               ¿Tienes un problema o necesitas un equipo nuevo?<br />
-              En <span className="contact__brand">CompuCerebro</span> pensamos contigo.
-            </p>
+              En <ContactBrand>CompuCerebro</ContactBrand> pensamos contigo.
+            </ContactSub>
           </div>
 
-          <div className="contact__details">
+          <ContactDetails>
             {/* Teléfono */}
-            <div className="contact__detail" id="contact-phone">
-              <div className="contact__detail-icon">
+            <DetailItem id="contact-phone">
+              <DetailIcon>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
                   <rect x="5" y="2" width="14" height="20" rx="2" />
                   <path d="M12 18h.01" />
                 </svg>
-              </div>
+              </DetailIcon>
               <div>
-                <span className="contact__detail-label">Teléfono</span>
-                <a href="tel:+573XXXXXXXXX" className="contact__detail-value">3023433299</a>
+                <DetailLabel>Teléfono</DetailLabel>
+                <DetailValue as="a" href="tel:+573XXXXXXXXX">3023433299</DetailValue>
               </div>
-            </div>
+            </DetailItem>
 
             {/* Dirección */}
-            <div className="contact__detail" id="contact-address">
-              <div className="contact__detail-icon">
+            <DetailItem id="contact-address">
+              <DetailIcon>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
                   <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
                   <circle cx="12" cy="9" r="2.5" />
                 </svg>
-              </div>
+              </DetailIcon>
               <div>
-                <span className="contact__detail-label">Dirección</span>
-                <span className="contact__detail-value">Cl. 70a Bis #121a-30 Bogotá D.C</span>
+                <DetailLabel>Dirección</DetailLabel>
+                <DetailValue>Cl. 70a Bis #121a-30 Bogotá D.C</DetailValue>
               </div>
-            </div>
+            </DetailItem>
 
             {/* Email */}
-            <div className="contact__detail" id="contact-email">
-              <div className="contact__detail-icon">
+            <DetailItem id="contact-email">
+              <DetailIcon>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
                   <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
                   <polyline points="22,6 12,13 2,6" />
                 </svg>
-              </div>
+              </DetailIcon>
               <div>
-                <span className="contact__detail-label">Correo</span>
-                <a href="mailto:compucerebro@gmail.com" className="contact__detail-value">
+                <DetailLabel>Correo</DetailLabel>
+                <DetailValue as="a" href="mailto:compucerebro@gmail.com">
                   compucerebro@gmail.com
-                </a>
+                </DetailValue>
               </div>
-            </div>
-          </div>
-        </div>
+            </DetailItem>
+          </ContactDetails>
+        </ContactInfo>
 
         {/* CTA */}
-        <div className="contact__cta">
-          <a
+        <ContactCta>
+          <WhatsAppBtn
             href="https://wa.me/573023433299"
             target="_blank"
             rel="noopener noreferrer"
-            className="contact__whatsapp"
             id="contact-whatsapp"
           >
             <svg viewBox="0 0 24 24" fill="currentColor">
               <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
             </svg>
             Escríbenos por WhatsApp
-          </a>
-        </div>
-      </div>
-    </section>
+          </WhatsAppBtn>
+        </ContactCta>
+      </ContactBody>
+    </ContactSection>
   )
 }
 

@@ -1,25 +1,31 @@
-.contact {
+import styled from 'styled-components';
+
+export const ContactSection = styled.section`
   background: #fff;
   display: flex;
   flex-direction: column;
-}
+`;
 
-/* Mapa */
-.contact__map {
+/* Map Styles */
+export const MapContainer = styled.div`
   position: relative;
   width: 100%;
   height: 320px;
   overflow: hidden;
-}
 
-.contact__map iframe {
-  width: 100%;
-  height: 100%;
-  border: none;
-  filter: grayscale(20%) contrast(1.05);
-}
+  iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    filter: grayscale(20%) contrast(1.05);
+  }
 
-.contact__map-overlay {
+  @media (max-width: 600px) {
+    height: 240px;
+  }
+`;
+
+export const MapOverlay = styled.div`
   position: absolute;
   bottom: 0;
   left: 0;
@@ -27,9 +33,9 @@
   height: 80px;
   background: linear-gradient(to top, #fff, transparent);
   pointer-events: none;
-}
+`;
 
-.contact__map-link {
+export const MapLink = styled.a`
   position: absolute;
   bottom: 1rem;
   right: 1rem;
@@ -43,16 +49,16 @@
   border-radius: 50px;
   transition: var(--transition);
   z-index: 5;
-}
 
-.contact__map-link:hover {
-  background: var(--color-blue);
-  color: #fff;
-  border-color: var(--color-blue);
-}
+  &:hover {
+    background: var(--color-blue);
+    color: #fff;
+    border-color: var(--color-blue);
+  }
+`;
 
-/* Body */
-.contact__body {
+/* Body Info Styles */
+export const ContactBody = styled.div`
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
@@ -61,16 +67,26 @@
   max-width: 1000px;
   margin: 0 auto;
   width: 100%;
-}
 
-.contact__info {
+  @media (max-width: 900px) {
+    padding: 3rem 2rem;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  @media (max-width: 600px) {
+    padding: 2.5rem 1.5rem;
+  }
+`;
+
+export const ContactInfo = styled.div`
   flex: 1;
   display: flex;
   flex-direction: column;
   gap: 2rem;
-}
+`;
 
-.contact__title {
+export const ContactTitle = styled.h2`
   font-family: var(--font-heading);
   font-size: clamp(2rem, 4vw, 2.8rem);
   font-weight: 800;
@@ -78,34 +94,27 @@
   text-transform: uppercase;
   color: #111;
   margin: 0 0 0.5rem;
-}
+`;
 
-.contact__sub {
+export const ContactSub = styled.p`
   font-size: 0.95rem;
   color: #666;
   line-height: 1.6;
   margin: 0;
-}
+`;
 
-.contact__brand {
+export const ContactBrand = styled.span`
   color: var(--color-blue);
   font-weight: 600;
-}
+`;
 
-/* Detalles */
-.contact__details {
+export const ContactDetails = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
-}
+`;
 
-.contact__detail {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.contact__detail-icon {
+export const DetailIcon = styled.div`
   width: 44px;
   height: 44px;
   min-width: 44px;
@@ -116,52 +125,65 @@
   justify-content: center;
   color: #444;
   transition: var(--transition);
-}
 
-.contact__detail-icon svg {
-  width: 20px;
-  height: 20px;
-}
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+`;
 
-.contact__detail:hover .contact__detail-icon {
-  border-color: var(--color-blue);
-  color: var(--color-blue);
-  background: rgba(30, 144, 255, 0.05);
-}
-
-.contact__detail > div {
+export const DetailItem = styled.div`
   display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
+  align-items: center;
+  gap: 1rem;
 
-.contact__detail-label {
+  &:hover ${DetailIcon} {
+    border-color: var(--color-blue);
+    color: var(--color-blue);
+    background: rgba(30, 144, 255, 0.05);
+  }
+
+  & > div {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+`;
+
+export const DetailLabel = styled.span`
   font-size: 0.7rem;
   letter-spacing: 1px;
   text-transform: uppercase;
   color: #aaa;
   font-weight: 600;
-}
+`;
 
-.contact__detail-value {
+export const DetailValue = styled.span`
   font-size: 0.95rem;
   color: #222;
   font-weight: 500;
   transition: var(--transition);
-}
 
-a.contact__detail-value:hover {
-  color: var(--color-blue);
-}
+  ${props => props.as === 'a' && `
+    text-decoration: none;
+    &:hover {
+      color: var(--color-blue);
+    }
+  `}
+`;
 
-/* CTA */
-.contact__cta {
+/* CTA Styles */
+export const ContactCta = styled.div`
   display: flex;
   align-items: flex-start;
   padding-top: 1.5rem;
-}
 
-.contact__whatsapp {
+  @media (max-width: 900px) {
+    padding-top: 0;
+  }
+`;
+
+export const WhatsAppBtn = styled.a`
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
@@ -176,37 +198,16 @@ a.contact__detail-value:hover {
   transition: var(--transition);
   box-shadow: 0 4px 14px rgba(37, 211, 102, 0.3);
   white-space: nowrap;
-}
+  text-decoration: none;
 
-.contact__whatsapp svg {
-  width: 20px;
-  height: 20px;
-}
-
-.contact__whatsapp:hover {
-  background: #128C7E;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
-}
-
-@media (max-width: 900px) {
-  .contact__body {
-    padding: 3rem 2rem;
-    flex-direction: column;
-    align-items: center;
+  svg {
+    width: 20px;
+    height: 20px;
   }
 
-  .contact__cta {
-    padding-top: 0;
+  &:hover {
+    background: #128C7E;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
   }
-}
-
-@media (max-width: 600px) {
-  .contact__map {
-    height: 240px;
-  }
-
-  .contact__body {
-    padding: 2.5rem 1.5rem;
-  }
-}
+`;

@@ -1,35 +1,37 @@
-.services {
+import styled, { css } from 'styled-components';
+
+export const ServicesSection = styled.section`
   position: relative;
   background: #02040A;
   padding: 6rem 2rem;
   overflow: hidden;
-}
+`;
 
-.services__bg-pattern {
+export const ServicesBgPattern = styled.div`
   position: absolute;
   inset: 0;
   background-image: radial-gradient(circle, rgba(30,144,255,0.08) 1px, transparent 1px);
   background-size: 28px 28px;
   z-index: 0;
-}
+`;
 
-.services__container {
+export const ServicesContainer = styled.div`
   position: relative;
   z-index: 1;
   max-width: 1100px;
   margin: 0 auto;
   text-align: center;
-}
+`;
 
-.services__header {
+export const ServicesHeader = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 0.75rem;
   margin-bottom: 3.5rem;
-}
+`;
 
-.services__tag {
+export const ServicesTag = styled.span`
   font-family: var(--font-heading);
   font-size: 0.78rem;
   font-weight: 600;
@@ -40,9 +42,9 @@
   border: 1px solid rgba(30, 144, 255, 0.25);
   padding: 0.3rem 0.85rem;
   border-radius: 50px;
-}
+`;
 
-.services__title {
+export const ServicesTitle = styled.h2`
   font-family: var(--font-heading);
   font-size: clamp(2.2rem, 5vw, 3.2rem);
   font-weight: 800;
@@ -50,36 +52,88 @@
   text-transform: uppercase;
   color: var(--color-white);
   margin: 0;
-}
+`;
 
-.services__title-line {
+export const TitleLine = styled.div`
   width: 60px;
   height: 3px;
   background: linear-gradient(90deg, var(--color-blue), var(--color-blue-light));
   border-radius: 2px;
-}
+`;
 
-.services__subtitle {
+export const ServicesSubtitle = styled.p`
   color: rgba(255,255,255,0.6);
   font-size: 1rem;
   line-height: 1.6;
-}
 
-.services__subtitle strong {
-  color: var(--color-white);
-  font-weight: 600;
-}
+  strong {
+    color: var(--color-white);
+    font-weight: 600;
+  }
+`;
 
-/* Grid */
-.services__grid {
+export const ServicesGrid = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 1.5rem;
-}
 
-/* Service Card */
-.service-card {
+  @media (max-width: 600px) {
+    gap: 1rem;
+  }
+`;
+
+/* Service Card Styles */
+export const IconWrap = styled.div`
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const Icon = styled.div`
+  width: 52px;
+  height: 52px;
+  color: var(--color-blue-light);
+  position: relative;
+  z-index: 1;
+  transition: color 0.3s ease;
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+`;
+
+export const IconGlow = styled.div`
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: rgba(30, 144, 255, 0.15);
+  filter: blur(10px);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+`;
+
+export const CardName = styled.h3`
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--color-blue);
+  margin: 0;
+  line-height: 1.2;
+`;
+
+export const CardDesc = styled.p`
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.5;
+`;
+
+export const Card = styled.div`
   background: rgba(255,255,255,0.04);
   border: 1px solid rgba(255,255,255,0.07);
   border-radius: 14px;
@@ -95,99 +149,42 @@
   transition: var(--transition);
   position: relative;
   overflow: hidden;
-}
 
-.service-card::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(30,144,255,0.08), transparent);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  border-radius: 14px;
-}
-
-.service-card:hover {
-  border-color: rgba(30, 144, 255, 0.4);
-  transform: translateY(-6px);
-  box-shadow: 0 10px 30px rgba(30, 144, 255, 0.15);
-}
-
-.service-card:hover::before {
-  opacity: 1;
-}
-
-.service-card__icon-wrap {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.service-card__icon {
-  width: 52px;
-  height: 52px;
-  color: var(--color-blue-light);
-  position: relative;
-  z-index: 1;
-  transition: color 0.3s ease;
-}
-
-.service-card__icon svg {
-  width: 100%;
-  height: 100%;
-}
-
-.service-card:hover .service-card__icon {
-  color: var(--color-blue);
-}
-
-.service-card__icon-glow {
-  position: absolute;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background: rgba(30, 144, 255, 0.15);
-  filter: blur(10px);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.service-card:hover .service-card__icon-glow {
-  opacity: 1;
-}
-
-.service-card__name {
-  font-family: var(--font-heading);
-  font-size: 1rem;
-  font-weight: 700;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: var(--color-blue);
-  margin: 0;
-  line-height: 1.2;
-}
-
-.service-card__desc {
-  font-size: 0.78rem;
-  color: rgba(255,255,255,0.55);
-  line-height: 1.5;
-}
-
-@media (max-width: 600px) {
-  .services__grid {
-    gap: 1rem;
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(30,144,255,0.08), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 14px;
   }
 
-  .service-card {
+  &:hover {
+    border-color: rgba(30, 144, 255, 0.4);
+    transform: translateY(-6px);
+    box-shadow: 0 10px 30px rgba(30, 144, 255, 0.15);
+
+    &::before {
+      opacity: 1;
+    }
+
+    ${Icon} {
+      color: var(--color-blue);
+    }
+
+    ${IconGlow} {
+      opacity: 1;
+    }
+  }
+
+  @media (max-width: 600px) {
     flex: 0 0 calc(50% - 0.5rem);
     width: calc(50% - 0.5rem);
   }
-}
 
-@media (max-width: 400px) {
-  .service-card {
+  @media (max-width: 400px) {
     flex: 0 0 100%;
     width: 100%;
   }
-}
+`;

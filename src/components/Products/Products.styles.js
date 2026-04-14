@@ -1,18 +1,20 @@
-.products {
+import styled, { css } from 'styled-components';
+
+export const ProductsSection = styled.section`
   background: #f8f9fa;
   padding: 6rem 2rem;
   text-align: center;
-}
+`;
 
-.products__header {
+export const ProductsHeader = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 0.75rem;
   margin-bottom: 3.5rem;
-}
+`;
 
-.products__tag {
+export const ProductsTag = styled.span`
   font-family: var(--font-heading);
   font-size: 0.78rem;
   font-weight: 600;
@@ -23,9 +25,9 @@
   border: 1px solid rgba(30, 144, 255, 0.25);
   padding: 0.3rem 0.85rem;
   border-radius: 50px;
-}
+`;
 
-.products__title {
+export const ProductsTitle = styled.h2`
   font-family: var(--font-heading);
   font-size: clamp(2.2rem, 5vw, 3.2rem);
   font-weight: 800;
@@ -33,55 +35,68 @@
   text-transform: uppercase;
   color: #111;
   margin: 0;
-}
+`;
 
-.products__title-line {
+export const TitleLine = styled.div`
   width: 60px;
   height: 3px;
   background: linear-gradient(90deg, var(--color-blue), var(--color-blue-light));
   border-radius: 2px;
-}
+`;
 
-.products__subtitle {
+export const ProductsSubtitle = styled.p`
   font-size: 0.95rem;
   color: var(--color-blue);
   max-width: 400px;
   line-height: 1.6;
-}
+`;
 
-/* Carrusel */
-.products__carousel {
+/* Carousel Styles */
+export const CarouselContainer = styled.div`
   display: flex;
   align-items: stretch;
   justify-content: center;
   gap: 1.5rem;
   max-width: 1100px;
   margin: 0 auto 2.5rem;
-}
+`;
 
-/* Tarjetas laterales */
-.products__side-card {
+export const SideCardWrapper = styled.div`
   flex: 0 0 250px;
   opacity: 0.45;
   transform: scale(0.9);
   cursor: pointer;
   transition: var(--transition);
   filter: grayscale(0.3);
-}
 
-.products__side-card:hover {
-  opacity: 0.65;
-  transform: scale(0.92);
-}
+  &:hover {
+    opacity: 0.65;
+    transform: scale(0.92);
+  }
 
-/* Tarjeta central */
-.products__center-card {
+  @media (max-width: 900px) {
+    display: none;
+  }
+`;
+
+export const CenterCardWrapper = styled.div`
   flex: 0 0 350px;
   z-index: 1;
-}
 
-/* Product Card */
-.product-card {
+  @media (max-width: 900px) {
+    flex: 0 0 min(350px, 90vw);
+  }
+`;
+
+/* Product Card Styles */
+export const CardImage = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+`;
+
+export const CardContainer = styled.div`
   background: #fff;
   border-radius: 16px;
   overflow: hidden;
@@ -91,14 +106,18 @@
   height: 100%;
   transition: box-shadow 0.3s ease, transform 0.3s ease;
   position: relative;
-}
 
-.product-card--active {
-  box-shadow: 0 12px 40px rgba(30, 144, 255, 0.2), 0 4px 16px rgba(0,0,0,0.1);
-  transform: translateY(-4px);
-}
+  ${props => props.$isActive && css`
+    box-shadow: 0 12px 40px rgba(30, 144, 255, 0.2), 0 4px 16px rgba(0,0,0,0.1);
+    transform: translateY(-4px);
+  `}
 
-.product-card__badge {
+  &:hover ${CardImage} {
+    transform: scale(1.05);
+  }
+`;
+
+export const CardBadge = styled.div`
   position: absolute;
   top: 14px;
   left: 14px;
@@ -111,45 +130,34 @@
   text-transform: uppercase;
   padding: 0.25rem 0.65rem;
   border-radius: 50px;
-}
+`;
 
-.product-card__image-wrap {
+export const ImageWrap = styled.div`
   width: 100%;
   aspect-ratio: 4/3;
   overflow: hidden;
   background: #f0f2f5;
-}
+`;
 
-.product-card__image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.4s ease;
-}
-
-.product-card:hover .product-card__image {
-  transform: scale(1.05);
-}
-
-.product-card__body {
+export const CardBody = styled.div`
   padding: 1.25rem 1.5rem 1.5rem;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
   flex: 1;
   text-align: left;
-}
+`;
 
-.product-card__tag {
+export const CardTag = styled.span`
   font-family: var(--font-heading);
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 1.5px;
   text-transform: uppercase;
   color: var(--color-blue);
-}
+`;
 
-.product-card__name {
+export const CardName = styled.h3`
   font-family: var(--font-heading);
   font-size: 1.4rem;
   font-weight: 800;
@@ -157,16 +165,16 @@
   letter-spacing: 0.5px;
   text-transform: uppercase;
   margin: 0;
-}
+`;
 
-.product-card__desc {
+export const CardDesc = styled.p`
   font-size: 0.85rem;
   color: #666;
   line-height: 1.6;
   flex: 1;
-}
+`;
 
-.product-card__btn {
+export const CardBtn = styled.a`
   display: inline-block;
   margin-top: 0.5rem;
   background: var(--color-blue);
@@ -181,23 +189,23 @@
   text-align: center;
   transition: var(--transition);
   box-shadow: 0 4px 14px rgba(30,144,255,0.25);
-}
 
-.product-card__btn:hover {
-  background: var(--color-blue-light);
-  transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(30,144,255,0.4);
-}
+  &:hover {
+    background: var(--color-blue-light);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(30,144,255,0.4);
+  }
+`;
 
-/* Controles */
-.products__controls {
+/* Control Styles */
+export const ControlsContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 1.2rem;
-}
+`;
 
-.products__arrow {
+export const ArrowButton = styled.button`
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -209,25 +217,25 @@
   justify-content: center;
   cursor: pointer;
   transition: var(--transition);
-}
 
-.products__arrow svg {
-  width: 18px;
-  height: 18px;
-}
+  svg {
+    width: 18px;
+    height: 18px;
+  }
 
-.products__arrow:hover {
-  border-color: var(--color-blue);
-  color: var(--color-blue);
-  background: rgba(30, 144, 255, 0.06);
-}
+  &:hover {
+    border-color: var(--color-blue);
+    color: var(--color-blue);
+    background: rgba(30, 144, 255, 0.06);
+  }
+`;
 
-.products__dots {
+export const DotsContainer = styled.div`
   display: flex;
   gap: 8px;
-}
+`;
 
-.products__dot {
+export const DotLoader = styled.button`
   width: 9px;
   height: 9px;
   border-radius: 50%;
@@ -235,19 +243,9 @@
   border: none;
   cursor: pointer;
   transition: var(--transition);
-}
 
-.products__dot--active {
-  background: var(--color-blue);
-  transform: scale(1.3);
-}
-
-@media (max-width: 900px) {
-  .products__side-card {
-    display: none;
-  }
-
-  .products__center-card {
-    flex: 0 0 min(350px, 90vw);
-  }
-}
+  ${props => props.$active && css`
+    background: var(--color-blue);
+    transform: scale(1.3);
+  `}
+`;

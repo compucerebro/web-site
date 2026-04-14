@@ -1,6 +1,14 @@
 import { useState, useEffect } from 'react'
 import logo from '../../assets/logo.png'
-import './Navbar.css'
+import {
+  Nav,
+  LogoLink,
+  LogoImg,
+  LogoName,
+  Hamburger,
+  NavLinks,
+  NavLink
+} from './Navbar.styles'
 
 function Navbar() {
   const [scrolled, setScrolled] = useState(false)
@@ -19,27 +27,24 @@ function Navbar() {
   }
 
   return (
-    <nav className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}>
-
+    <Nav $scrolled={scrolled}>
       {/* ── LOGO ── */}
-      <a
+      <LogoLink
         href="#inicio"
-        className="navbar__logo"
         id="navbar-logo"
         onClick={(e) => scrollTo(e, '#inicio')}
         aria-label="CompuCerebro - Inicio"
       >
-        <img
+        <LogoImg
           src={logo}
           alt="CompuCerebro"
-          className="navbar__logo-img"
         />
-        <span className="navbar__logo-name">CompuCerebro</span>
-      </a>
+        <LogoName>CompuCerebro</LogoName>
+      </LogoLink>
 
       {/* ── HAMBURGER (móvil) ── */}
-      <button
-        className={`navbar__hamburger ${menuOpen ? 'open' : ''}`}
+      <Hamburger
+        $open={menuOpen}
         onClick={() => setMenuOpen(!menuOpen)}
         aria-label="Abrir menú"
         id="navbar-hamburger"
@@ -47,32 +52,32 @@ function Navbar() {
         <span></span>
         <span></span>
         <span></span>
-      </button>
+      </Hamburger>
 
       {/* ── LINKS ── */}
-      <ul className={`navbar__links ${menuOpen ? 'navbar__links--open' : ''}`}>
+      <NavLinks $open={menuOpen}>
         <li>
-          <a href="#productos" id="nav-productos" onClick={(e) => scrollTo(e, '#productos')}>
+          <NavLink href="#productos" id="nav-productos" onClick={(e) => scrollTo(e, '#productos')}>
             Ver Productos
-          </a>
+          </NavLink>
         </li>
         <li>
-          <a href="#servicios" id="nav-soporte" onClick={(e) => scrollTo(e, '#servicios')}>
+          <NavLink href="#servicios" id="nav-soporte" onClick={(e) => scrollTo(e, '#servicios')}>
             Solicitar Soporte
-          </a>
+          </NavLink>
         </li>
         <li>
-          <a
+          <NavLink
             href="#contacto"
             id="nav-contacto"
-            className="navbar__link--cta"
+            $cta
             onClick={(e) => scrollTo(e, '#contacto')}
           >
             Contáctenos
-          </a>
+          </NavLink>
         </li>
-      </ul>
-    </nav>
+      </NavLinks>
+    </Nav>
   )
 }
 

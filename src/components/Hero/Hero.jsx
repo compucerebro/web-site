@@ -1,4 +1,19 @@
-import './Hero.css'
+import {
+  HeroSection,
+  HeroBgPattern,
+  HeroBgImage,
+  KeyboardOverlay,
+  HeroOverlay,
+  HeroContent,
+  HeroBadge,
+  BadgeDot,
+  HeroTitle,
+  HeroSubtitle,
+  HeroDescription,
+  HeroActions,
+  HeroBtn,
+  ScrollArrow
+} from './Hero.styles'
 
 function Hero() {
   const handleScrollDown = () => {
@@ -7,42 +22,42 @@ function Hero() {
   }
 
   return (
-    <section className="hero" id="inicio">
+    <HeroSection id="inicio">
       {/* Fondo con patrón de puntos */}
-      <div className="hero__bg-pattern"></div>
+      <HeroBgPattern />
 
       {/* Imagen decorativa de teclado en la esquina */}
-      <div className="hero__bg-image">
-        <div className="hero__keyboard-overlay"></div>
-      </div>
+      <HeroBgImage>
+        <KeyboardOverlay />
+      </HeroBgImage>
 
       {/* Overlay degradado */}
-      <div className="hero__overlay"></div>
+      <HeroOverlay />
 
       {/* Contenido */}
-      <div className="hero__content">
-        <div className="hero__badge">
-          <span className="hero__badge-dot"></span>
+      <HeroContent>
+        <HeroBadge>
+          <BadgeDot />
           Soluciones tecnológicas de confianza
-        </div>
+        </HeroBadge>
 
-        <h1 className="hero__title">
+        <HeroTitle>
           COMPUCEREBRO
-        </h1>
+        </HeroTitle>
 
-        <p className="hero__subtitle">
+        <HeroSubtitle>
           Tecnología inteligente para tu día a día
-        </p>
+        </HeroSubtitle>
 
-        <p className="hero__description">
+        <HeroDescription>
           Venta de computadores, soporte técnico y soluciones tecnológicas<br />
           pensadas para personas y empresas.
-        </p>
+        </HeroDescription>
 
-        <div className="hero__actions">
-          <a
+        <HeroActions>
+          <HeroBtn
             href="#productos"
-            className="hero__btn hero__btn--primary"
+            $primary
             id="hero-ver-productos"
             onClick={(e) => {
               e.preventDefault()
@@ -50,10 +65,9 @@ function Hero() {
             }}
           >
             Ver Productos
-          </a>
-          <a
+          </HeroBtn>
+          <HeroBtn
             href="#contacto"
-            className="hero__btn hero__btn--secondary"
             id="hero-contacto"
             onClick={(e) => {
               e.preventDefault()
@@ -61,13 +75,12 @@ function Hero() {
             }}
           >
             Contáctenos
-          </a>
-        </div>
-      </div>
+          </HeroBtn>
+        </HeroActions>
+      </HeroContent>
 
       {/* Flecha de scroll */}
-      <button
-        className="hero__scroll-arrow"
+      <ScrollArrow
         onClick={handleScrollDown}
         aria-label="Bajar"
         id="hero-scroll-down"
@@ -75,8 +88,8 @@ function Hero() {
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
           <polyline points="6 9 12 15 18 9" />
         </svg>
-      </button>
-    </section>
+      </ScrollArrow>
+    </HeroSection>
   )
 }
 

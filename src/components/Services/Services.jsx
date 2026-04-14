@@ -1,4 +1,20 @@
-import './Services.css'
+import {
+  ServicesSection,
+  ServicesBgPattern,
+  ServicesContainer,
+  ServicesHeader,
+  ServicesTag,
+  ServicesTitle,
+  TitleLine,
+  ServicesSubtitle,
+  ServicesGrid,
+  Card,
+  IconWrap,
+  Icon,
+  IconGlow,
+  CardName,
+  CardDesc
+} from './Services.styles'
 
 const services = [
   {
@@ -61,39 +77,39 @@ const services = [
 
 function ServiceCard({ service }) {
   return (
-    <div className="service-card" id={`service-${service.id}`}>
-      <div className="service-card__icon-wrap">
-        <div className="service-card__icon">{service.icon}</div>
-        <div className="service-card__icon-glow"></div>
-      </div>
-      <h3 className="service-card__name">{service.name}</h3>
-      <p className="service-card__desc">{service.description}</p>
-    </div>
+    <Card id={`service-${service.id}`}>
+      <IconWrap>
+        <Icon>{service.icon}</Icon>
+        <IconGlow />
+      </IconWrap>
+      <CardName>{service.name}</CardName>
+      <CardDesc>{service.description}</CardDesc>
+    </Card>
   )
 }
 
 function Services() {
   return (
-    <section className="services" id="servicios">
-      <div className="services__bg-pattern"></div>
+    <ServicesSection id="servicios">
+      <ServicesBgPattern />
 
-      <div className="services__container">
-        <div className="services__header">
-          <span className="services__tag">Lo que ofrecemos</span>
-          <h2 className="services__title">Nuestros Servicios</h2>
-          <div className="services__title-line"></div>
-          <p className="services__subtitle">
+      <ServicesContainer>
+        <ServicesHeader>
+          <ServicesTag>Lo que ofrecemos</ServicesTag>
+          <ServicesTitle>Nuestros Servicios</ServicesTitle>
+          <TitleLine />
+          <ServicesSubtitle>
             No vendemos <strong>tecnología</strong>, vendemos <strong>tranquilidad</strong>.
-          </p>
-        </div>
+          </ServicesSubtitle>
+        </ServicesHeader>
 
-        <div className="services__grid">
+        <ServicesGrid>
           {services.map((s) => (
             <ServiceCard key={s.id} service={s} />
           ))}
-        </div>
-      </div>
-    </section>
+        </ServicesGrid>
+      </ServicesContainer>
+    </ServicesSection>
   )
 }
 

@@ -1,52 +1,59 @@
-.footer {
+import styled from 'styled-components';
+
+export const FooterContainer = styled.footer`
   background: #02040A;
   border-top: 1px solid rgba(30, 144, 255, 0.18);
   color: rgba(255,255,255,0.55);
   font-size: 0.9rem;
-}
+`;
 
-.footer__container {
+export const FooterContent = styled.div`
   max-width: 1100px;
   margin: 0 auto;
   padding: 3.5rem 2rem 2rem;
   display: flex;
   gap: 4rem;
   flex-wrap: wrap;
-}
 
-.footer__brand {
+  @media (max-width: 600px) {
+    flex-direction: column;
+    gap: 2rem;
+    padding-bottom: 1.5rem;
+  }
+`;
+
+export const FooterBrand = styled.div`
   flex: 1;
   min-width: 200px;
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
-}
+`;
 
-.footer__logo {
+export const FooterLogo = styled.span`
   font-family: var(--font-heading);
   font-size: 1.5rem;
   font-weight: 800;
   letter-spacing: 1px;
   text-transform: uppercase;
   color: var(--color-white);
-}
+`;
 
-.footer__logo-accent {
+export const LogoAccent = styled.span`
   color: var(--color-blue);
-}
+`;
 
-.footer__tagline {
+export const FooterTagline = styled.p`
   font-size: 0.85rem;
   color: rgba(255,255,255,0.4);
   line-height: 1.5;
-}
+`;
 
-.footer__links,
-.footer__contact {
+export const FooterSection = styled.div`
   min-width: 150px;
-}
+`;
 
-.footer__links-title {
+export const FooterTitle = styled.h4`
   font-family: var(--font-heading);
   font-size: 0.78rem;
   font-weight: 700;
@@ -54,50 +61,41 @@
   text-transform: uppercase;
   color: var(--color-white);
   margin: 0 0 1rem;
-}
+`;
 
-.footer__links ul,
-.footer__contact ul {
+export const FooterList = styled.ul`
   list-style: none;
   padding: 0;
   margin: 0;
   display: flex;
   flex-direction: column;
   gap: 0.6rem;
-}
 
-.footer__links ul li a {
-  color: rgba(255,255,255,0.5);
-  transition: color 0.2s ease;
-  font-size: 0.88rem;
-}
+  li {
+    color: rgba(255,255,255,0.5);
+    font-size: 0.85rem;
+    line-height: 1.4;
 
-.footer__links ul li a:hover {
-  color: var(--color-blue-light);
-}
+    a {
+      color: rgba(255,255,255,0.5);
+      transition: color 0.2s ease;
+      font-size: 0.88rem;
+      text-decoration: none;
 
-.footer__contact ul li {
-  color: rgba(255,255,255,0.5);
-  font-size: 0.85rem;
-  line-height: 1.4;
-}
+      &:hover {
+        color: var(--color-blue-light);
+      }
+    }
+  }
+`;
 
-/* Bottom */
-.footer__bottom {
+export const FooterBottom = styled.div`
   border-top: 1px solid rgba(255,255,255,0.07);
   padding: 1.2rem 2rem;
   text-align: center;
-}
 
-.footer__bottom p {
-  font-size: 0.8rem;
-  color: rgba(255,255,255,0.3);
-}
-
-@media (max-width: 600px) {
-  .footer__container {
-    flex-direction: column;
-    gap: 2rem;
-    padding-bottom: 1.5rem;
+  p {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.3);
   }
-}
+`;
