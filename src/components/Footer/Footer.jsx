@@ -38,7 +38,7 @@ function Footer() {
         <FooterSection>
           <FooterTitle>Contacto</FooterTitle>
           <FooterList>
-            <li>📞 3023433299</li>
+            <li>📞 3239155583</li>
             <li>📍 Cl. 70a Bis #121a-30 Bogotá D.C</li>
             <li>✉️ compucerebro@gmail.com</li>
           </FooterList>

@@ -62,7 +62,12 @@ function Navbar() {
           </NavLink>
         </li>
         <li>
-          <NavLink href="#servicios" id="nav-soporte" onClick={(e) => scrollTo(e, '#servicios')}>
+          <NavLink href="#servicios" id="nav-servicios" onClick={(e) => scrollTo(e, '#servicios')}>
+            Servicios
+          </NavLink>
+        </li>
+        <li>
+          <NavLink href="#contacto" id="nav-soporte" onClick={(e) => scrollTo(e, '#contacto')}>
             Solicitar Soporte
           </NavLink>
         </li>

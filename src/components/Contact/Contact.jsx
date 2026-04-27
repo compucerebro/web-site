@@ -61,7 +61,7 @@ function Contact() {
               </DetailIcon>
               <div>
                 <DetailLabel>Teléfono</DetailLabel>
-                <DetailValue as="a" href="tel:+573XXXXXXXXX">3023433299</DetailValue>
+                <DetailValue as="a" href="tel:+573239155583">3239155583</DetailValue>
               </div>
             </DetailItem>
 
@@ -100,7 +100,7 @@ function Contact() {
         {/* CTA */}
         <ContactCta>
           <WhatsAppBtn
-            href="https://wa.me/573023433299"
+            href="https://wa.me/573239155583"
             target="_blank"
             rel="noopener noreferrer"
             id="contact-whatsapp"

@@ -15,7 +15,7 @@ import {
 
 function WhatsAppButton() {
   const [showPopup, setShowPopup] = useState(false);
-  const whatsappNumber = "573023433299"; 
+  const whatsappNumber = "573239155583"; 
   const whatsappLink = `https://wa.me/${whatsappNumber}`;
 
   useEffect(() => {

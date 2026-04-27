@@ -73,13 +73,13 @@ export const FooterList = styled.ul`
 
   li {
     color: rgba(255,255,255,0.5);
-    font-size: 0.85rem;
+    font-size: 1rem;
     line-height: 1.4;
 
     a {
       color: rgba(255,255,255,0.5);
       transition: color 0.2s ease;
-      font-size: 0.88rem;
+      font-size: 1rem;
       text-decoration: none;
 
       &:hover {

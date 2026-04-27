@@ -73,6 +73,17 @@ const services = [
     name: 'Asesoría',
     description: 'Asesoría tecnológica personalizada para tomar las mejores decisiones.',
   },
+  {
+    id: 'web-design',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+        <rect x="2" y="3" width="20" height="14" rx="2" />
+        <path d="M6 21h12M12 17v4M7 8l-2 2 2 2M17 8l2 2-2 2M14 8l-4 4" />
+      </svg>
+    ),
+    name: 'Diseño y desarrollo de sitios web',
+    description: 'Creamos sitios web modernos, rápidos y adaptados a tus necesidades.',
+  },
 ]
 
 function ServiceCard({ service }) {
