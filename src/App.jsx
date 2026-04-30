@@ -8,6 +8,7 @@ import Services from './components/Services/Services'
 import Contact from './components/Contact/Contact'
 import Footer from './components/Footer/Footer'
 import WhatsAppButton from './components/WhatsAppButton/WhatsAppButton'
+import { Analytics } from '@vercel/analytics/react'
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
       <Contact />
       <Footer />
       <WhatsAppButton />
+      <Analytics />
     </>
   )
 }
