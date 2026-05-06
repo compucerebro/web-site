@@ -18,6 +18,22 @@
           'currency': 'COP'
       });
     </script>
+    <script>
+      window.gtag_report_conversion = function gtag_report_conversion(url) {
+        var callback = function () {
+          if (typeof url !== 'undefined') {
+            window.location = url
+          }
+        }
+        gtag('event', 'conversion', {
+          send_to: 'AW-18109840198/xe-JCNjWuagcEMb2uLtD',
+          value: 1.0,
+          currency: 'COP',
+          event_callback: callback,
+        })
+        return false
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>
